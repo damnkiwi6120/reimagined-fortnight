@@ -13,21 +13,29 @@ public partial class Form1 : Form
 		InitializeComponent();
 	}
 
-	private async void buttonGetRandom_Click(object sender, EventArgs e)
+	private async void ButtonGetRandom_Click(object sender, EventArgs e)
 	{
+		var clickedButton = sender as Button;
+		int clickedValue = int.Parse(clickedButton.Text);
+
 		try
 		{
 			buttonGetRandom.Enabled = false;
+			button1.Enabled = false;
 			labelStatus.Text = "Fetching...";
 			labelStatus.ForeColor = System.Drawing.Color.Blue;
 
 			// Fetch random integer from random.org
-			string url = "https://www.random.org/integers/?num=1&min=1&max=100&col=1&base=10&format=plain&rnd=new";
+			string url = "https://www.random.org/integers/?num=1&min=1&max=6&col=1&base=10&format=plain&rnd=new";
 			string response = await client.GetStringAsync(url);
 			int randomInteger = int.Parse(response.Trim());
 
+			// Deal with the random integer according to the button's text
+			const decimal LCM = 6.0M;
+			decimal pInteger = Math.Ceiling(randomInteger/LCM*clickedValue);
+
 			// Display the random integer and current date/time
-			labelRandomInteger.Text = $"Random Integer: {randomInteger}";
+			labelRandomInteger.Text = $"Random Integer: {pInteger}";
 			labelDateTime.Text = $"Date & Time: {DateTime.Now:yyyy-MM-dd HH:mm:ss}";
 			labelStatus.Text = "Success!";
 			labelStatus.ForeColor = System.Drawing.Color.Green;
@@ -40,6 +48,7 @@ public partial class Form1 : Form
 		finally
 		{
 			buttonGetRandom.Enabled = true;
+			button1.Enabled = true;
 		}
 	}
 

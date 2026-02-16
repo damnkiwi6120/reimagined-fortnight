@@ -6,10 +6,6 @@ partial class Form1
 	///  Required designer variable.
 	/// </summary>
 	private System.ComponentModel.IContainer components = null;
-	private System.Windows.Forms.Button buttonGetRandom;
-	private System.Windows.Forms.Label labelRandomInteger;
-	private System.Windows.Forms.Label labelDateTime;
-	private System.Windows.Forms.Label labelStatus;
 
 	/// <summary>
 	///  Clean up any resources being used.
@@ -36,19 +32,21 @@ partial class Form1
 		labelRandomInteger = new Label();
 		labelDateTime = new Label();
 		labelStatus = new Label();
+		label1 = new Label();
+		button1 = new Button();
 		SuspendLayout();
 		// 
 		// buttonGetRandom
 		// 
 		buttonGetRandom.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold);
-		buttonGetRandom.Location = new Point(58, 59);
+		buttonGetRandom.Location = new Point(58, 78);
 		buttonGetRandom.Margin = new Padding(4, 3, 4, 3);
 		buttonGetRandom.Name = "buttonGetRandom";
-		buttonGetRandom.Size = new Size(350, 58);
+		buttonGetRandom.Size = new Size(151, 58);
 		buttonGetRandom.TabIndex = 0;
-		buttonGetRandom.Text = "Get Random Integer from Random.org";
+		buttonGetRandom.Text = "2";
 		buttonGetRandom.UseVisualStyleBackColor = true;
-		buttonGetRandom.Click += buttonGetRandom_Click;
+		buttonGetRandom.Click += ButtonGetRandom_Click;
 		// 
 		// labelRandomInteger
 		// 
@@ -83,11 +81,35 @@ partial class Form1
 		labelStatus.TabIndex = 3;
 		labelStatus.Text = "Ready.";
 		// 
+		// label1
+		// 
+		label1.AutoSize = true;
+		label1.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold);
+		label1.Location = new Point(58, 48);
+		label1.Name = "label1";
+		label1.Size = new Size(318, 20);
+		label1.TabIndex = 4;
+		label1.Text = "Get Random Integer from Random.org";
+		// 
+		// button1
+		// 
+		button1.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold);
+		button1.Location = new Point(217, 78);
+		button1.Margin = new Padding(4, 3, 4, 3);
+		button1.Name = "button1";
+		button1.Size = new Size(151, 58);
+		button1.TabIndex = 5;
+		button1.Text = "3";
+		button1.UseVisualStyleBackColor = true;
+		button1.Click += ButtonGetRandom_Click;
+		// 
 		// Form1
 		// 
 		AutoScaleDimensions = new SizeF(7F, 15F);
 		AutoScaleMode = AutoScaleMode.Font;
 		ClientSize = new Size(467, 346);
+		Controls.Add(button1);
+		Controls.Add(label1);
 		Controls.Add(labelStatus);
 		Controls.Add(labelDateTime);
 		Controls.Add(labelRandomInteger);
@@ -101,4 +123,11 @@ partial class Form1
 	}
 
 	#endregion
+
+	private Button buttonGetRandom;
+	private Label labelRandomInteger;
+	private Label labelDateTime;
+	private Label labelStatus;
+	private Label label1;
+	private Button button1;
 }
