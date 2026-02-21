@@ -16,7 +16,8 @@ public partial class Form1 : Form
 	private async void ButtonGetRandom_Click(object sender, EventArgs e)
 	{
 		var clickedButton = sender as Button;
-		int clickedValue = int.Parse(clickedButton.Text);
+		if (!int.TryParse(clickedButton?.Text, out int clickedValue))
+			clickedValue = -9999;
 
 		try
 		{
@@ -28,7 +29,8 @@ public partial class Form1 : Form
 			// Fetch random integer from random.org
 			string url = "https://www.random.org/integers/?num=1&min=1&max=6&col=1&base=10&format=plain&rnd=new";
 			string response = await client.GetStringAsync(url);
-			int randomInteger = int.Parse(response.Trim());
+			if(!int.TryParse(response.Trim(), out int randomInteger))
+				randomInteger = -9999;
 
 			// Deal with the random integer according to the button's text
 			const decimal LCM = 6.0M;
