@@ -6,7 +6,11 @@ namespace RandomIntegerFetcher;
 
 public partial class Form1 : Form
 {
-	private static readonly HttpClient client = new HttpClient();
+	private static readonly HttpClientHandler handler = new()
+	{
+		AutomaticDecompression = System.Net.DecompressionMethods.All
+	};
+	private static readonly HttpClient client = new(handler);
 
 	public Form1()
 	{
