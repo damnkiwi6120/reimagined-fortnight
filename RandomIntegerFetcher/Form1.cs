@@ -32,10 +32,10 @@ public partial class Form1 : Form
 
 			// Deal with the random integer according to the button's text
 			const decimal LCM = 6.0M;
-			decimal pInteger = Math.Ceiling(randomInteger/LCM*clickedValue);
+			decimal prInteger = Math.Ceiling(randomInteger/LCM*clickedValue);
 
 			// Display the random integer and current date/time
-			labelRandomInteger.Text = $"Random Integer: {pInteger}";
+			labelRandomInteger.Text = $"Random Integer: {prInteger}";
 			labelDateTime.Text = $"Date & Time: {DateTime.Now:yyyy-MM-dd HH:mm:ss}";
 			labelStatus.Text = "Success!";
 			labelStatus.ForeColor = System.Drawing.Color.Green;
