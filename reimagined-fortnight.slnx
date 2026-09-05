@@ -1,3 +1,5 @@
 <Solution>
-  <Project Path="RandomIntegerFetcher/RandomIntegerFetcher.csproj" />
+  <Project Path="RandomIntegerFetcher/RandomIntegerFetcher.csproj">
+    <Platform Solution="Debug|*" Project="x64" />
+  </Project>
 </Solution>
