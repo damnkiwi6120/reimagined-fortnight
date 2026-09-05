@@ -1,26 +1,28 @@
-using System;
+using System.Net;
 using System.Net.Http;
-using System.Windows.Forms;
+using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Media;
 
 namespace RandomIntegerFetcher;
 
-public partial class Form1 : Form
+public partial class MainWindow : Window
 {
 	private static readonly HttpClientHandler handler = new()
 	{
-		AutomaticDecompression = System.Net.DecompressionMethods.All
+		AutomaticDecompression = DecompressionMethods.All
 	};
 	private static readonly HttpClient client = new(handler);
 
-	public Form1()
+	public MainWindow()
 	{
 		InitializeComponent();
 	}
 
-	private async void ButtonGetRandom_Click(object sender, EventArgs e)
+	private async void ButtonGetRandom_Click(object sender, RoutedEventArgs e)
 	{
 		var clickedButton = sender as Button;
-		if (!int.TryParse(clickedButton?.Text, out int clickedValue))
+		if (!int.TryParse(clickedButton?.Content?.ToString(), out int clickedValue))
 			clickedValue = -9999;
 
 		//// Properly setting up HttpClient headers
@@ -44,42 +46,42 @@ public partial class Form1 : Form
 
 		try
 		{
-			buttonGetRandom.Enabled = false;
-			button1.Enabled = false;
-			labelStatus.Text = "Fetching...";
-			labelStatus.ForeColor = System.Drawing.Color.Blue;
+			buttonGetRandom.IsEnabled = false;
+			button1.IsEnabled = false;
+			labelStatus.Content = "Fetching...";
+			labelStatus.Foreground = Brushes.Blue;
 
 			// Fetch random integer from random.org
 			string url = "https://www.random.org/integers/?num=1&min=1&max=6&col=1&base=10&format=plain&rnd=new";
 			string response = await client.GetStringAsync(url);
-			if(!int.TryParse(response.Trim(), out int randomInteger))
+			if (!int.TryParse(response.Trim(), out int randomInteger))
 				randomInteger = -9999;
 
 			// Deal with the random integer according to the button's text
 			const decimal LCM = 6.0M;
-			decimal prInteger = Math.Ceiling(randomInteger/LCM*clickedValue);
+			decimal prInteger = Math.Ceiling(randomInteger / LCM * clickedValue);
 
 			// Display the random integer and current date/time
-			labelRandomInteger.Text = $"Random Integer: {prInteger}";
-			labelDateTime.Text = $"Date & Time: {DateTime.Now:yyyy-MM-dd HH:mm:ss}";
-			labelStatus.Text = "Success!";
-			labelStatus.ForeColor = System.Drawing.Color.Green;
+			labelRandomInteger.Content = $"Random Integer: {prInteger}";
+			labelDateTime.Content = $"Date & Time: {DateTime.Now:yyyy-MM-dd HH:mm:ss}";
+			labelStatus.Content = "Success!";
+			labelStatus.Foreground = Brushes.Green;
 		}
 		catch (Exception ex)
 		{
-			labelStatus.Text = $"Error: {ex.Message}";
-			labelStatus.ForeColor = System.Drawing.Color.Red;
+			labelStatus.Content = $"Error: {ex.Message}";
+			labelStatus.Foreground = Brushes.Red;
 		}
 		finally
 		{
-			buttonGetRandom.Enabled = true;
-			button1.Enabled = true;
+			buttonGetRandom.IsEnabled = true;
+			button1.IsEnabled = true;
 		}
 	}
 
-	private void Form1_Load(object sender, EventArgs e)
+	private void Window_Loaded(object sender, RoutedEventArgs e)
 	{
-		labelStatus.Text = "Ready. Click the button to fetch a random integer.";
-		labelStatus.ForeColor = System.Drawing.Color.Black;
+		labelStatus.Content = "Ready. Click the button to fetch a random integer.";
+		labelStatus.Foreground = Brushes.Black;
 	}
 }

@@ -1,0 +1,29 @@
+<Window x:Class="RandomIntegerFetcher.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Random Integer Fetcher"
+        Width="483" Height="385"
+        Loaded="Window_Loaded">
+    <Canvas>
+        <Label x:Name="label1" Canvas.Left="58" Canvas.Top="48"
+               FontFamily="Microsoft Sans Serif" FontSize="12" FontWeight="Bold"
+               Content="Get Random Integer from Random.org" />
+        <Button x:Name="buttonGetRandom" Canvas.Left="58" Canvas.Top="78"
+                Width="151" Height="58"
+                FontFamily="Microsoft Sans Serif" FontSize="12" FontWeight="Bold"
+                Content="2" Click="ButtonGetRandom_Click" />
+        <Button x:Name="button1" Canvas.Left="217" Canvas.Top="78"
+                Width="151" Height="58"
+                FontFamily="Microsoft Sans Serif" FontSize="12" FontWeight="Bold"
+                Content="3" Click="ButtonGetRandom_Click" />
+        <Label x:Name="labelRandomInteger" Canvas.Left="58" Canvas.Top="150"
+               FontFamily="Microsoft Sans Serif" FontSize="14" FontWeight="Bold"
+               Content="Random Integer: --" />
+        <Label x:Name="labelDateTime" Canvas.Left="58" Canvas.Top="196"
+               FontFamily="Microsoft Sans Serif" FontSize="12"
+               Content="Date &amp; Time: --" />
+        <Label x:Name="labelStatus" Canvas.Left="58" Canvas.Top="242"
+               FontFamily="Microsoft Sans Serif" FontSize="10"
+               Content="Ready." />
+    </Canvas>
+</Window>
