@@ -6,24 +6,24 @@
         Loaded="Window_Loaded">
     <Canvas>
         <Label x:Name="label1" Canvas.Left="58" Canvas.Top="48"
-               FontFamily="Microsoft Sans Serif" FontSize="12" FontWeight="Bold"
+               FontFamily="Microsoft Sans Serif" FontSize="16" FontWeight="Bold"
                Content="Get Random Integer from Random.org" />
         <Button x:Name="buttonGetRandom" Canvas.Left="58" Canvas.Top="78"
                 Width="151" Height="58"
-                FontFamily="Microsoft Sans Serif" FontSize="12" FontWeight="Bold"
+                FontFamily="Microsoft Sans Serif" FontSize="16" FontWeight="Bold"
                 Content="2" Click="ButtonGetRandom_Click" />
         <Button x:Name="button1" Canvas.Left="217" Canvas.Top="78"
                 Width="151" Height="58"
-                FontFamily="Microsoft Sans Serif" FontSize="12" FontWeight="Bold"
+                FontFamily="Microsoft Sans Serif" FontSize="16" FontWeight="Bold"
                 Content="3" Click="ButtonGetRandom_Click" />
         <Label x:Name="labelRandomInteger" Canvas.Left="58" Canvas.Top="150"
-               FontFamily="Microsoft Sans Serif" FontSize="14" FontWeight="Bold"
+               FontFamily="Microsoft Sans Serif" FontSize="18.667" FontWeight="Bold"
                Content="Random Integer: --" />
         <Label x:Name="labelDateTime" Canvas.Left="58" Canvas.Top="196"
-               FontFamily="Microsoft Sans Serif" FontSize="12"
+               FontFamily="Microsoft Sans Serif" FontSize="16"
                Content="Date &amp; Time: --" />
         <Label x:Name="labelStatus" Canvas.Left="58" Canvas.Top="242"
-               FontFamily="Microsoft Sans Serif" FontSize="10"
+               FontFamily="Microsoft Sans Serif" FontSize="13.333"
                Content="Ready." />
     </Canvas>
 </Window>
